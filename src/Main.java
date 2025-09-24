@@ -40,6 +40,16 @@ public class Main {
         Suscripcion sus3 = new Suscripcion("Premium", 500.00, 12); // mismo tipo y meses que sus1
         System.out.println("¿sus1 es igual a sus3? " + sus1.equals(sus3)); // true
         System.out.println("¿sus1 es igual a sus2? " + sus1.equals(sus2)); // false
+
+        // ----------------------
+        // PRUEBAS DE toString
+        // ----------------------
+        System.out.println("\nPruebas de toString():");
+        System.out.println(cliente1);
+        System.out.println(cliente2);
+        System.out.println(cliente3);
+        System.out.println(sus1);
+        System.out.println(sus2);
     }
 }
 
@@ -86,8 +96,7 @@ class Cliente {
         System.out.println(nombre + " " + apellidos +
                 " adquirió una suscripción " + suscripcion.getTipo() + ".");
     }
-
-    // Método mostrar información
+    
     public void mostrarInfo() {
         System.out.println("Cliente: " + nombre + " " + apellidos);
         System.out.println("Cédula: " + cedula);
@@ -101,7 +110,6 @@ class Cliente {
         System.out.println("----------------------------");
     }
 
-    // Getters y Setters con validaciones
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) {
         this.nombre = (nombre != null && !nombre.isBlank()) ? nombre : "Desconocido";
@@ -134,7 +142,7 @@ class Cliente {
     public Suscripcion getSuscripcion() { return suscripcion; }
     public void setSuscripcion(Suscripcion suscripcion) { this.suscripcion = suscripcion; }
 
-    // 🔹 Sobrescribir equals y hashCode
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true; // mismo objeto
@@ -147,6 +155,18 @@ class Cliente {
     public int hashCode() {
         return cedula.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", cedula='" + cedula + '\'' +
+                ", sexo='" + sexo + '\'' +
+                ", ubicacion='" + ubicacion + '\'' +
+                ", suscripcion=" + (suscripcion != null ? suscripcion.getTipo() : "Sin suscripción") +
+                '}';
+    }
 }
 
 // ----------------------
@@ -157,14 +177,12 @@ class Suscripcion {
     private double costo;
     private int periodicidadMeses;
 
-    // Constructor completo
     public Suscripcion(String tipo, double costo, int periodicidadMeses) {
         setTipo(tipo);
         setCosto(costo);
         setPeriodicidadMeses(periodicidadMeses);
     }
 
-    // Método mostrar información
     public void mostrarInfo() {
         System.out.println("Tipo de suscripción: " + tipo);
         System.out.println("Costo: $" + costo);
@@ -187,7 +205,6 @@ class Suscripcion {
         this.periodicidadMeses = (periodicidadMeses > 0) ? periodicidadMeses : 1;
     }
 
-    // 🔹 Sobrescribir equals y hashCode
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true; // mismo objeto
@@ -200,5 +217,14 @@ class Suscripcion {
     @Override
     public int hashCode() {
         return tipo.toLowerCase().hashCode() + periodicidadMeses;
+    }
+
+    @Override
+    public String toString() {
+        return "Suscripcion{" +
+                "tipo='" + tipo + '\'' +
+                ", costo=" + costo +
+                ", periodicidadMeses=" + periodicidadMeses +
+                '}';
     }
 }
