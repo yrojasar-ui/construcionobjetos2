@@ -28,7 +28,7 @@ public class Main {
         System.out.println("Pruebas de comparación con equals:");
 
         Cliente cliente4 = new Cliente("Otro", "Cliente", "123456789", "Masculino", "Cartago");
-<<<<<<< HEAD
+
         System.out.println("¿cliente1 es igual a cliente4? " + cliente1.equals(cliente4)); // true, misma cédula
         System.out.println("¿cliente1 es igual a cliente2? " + cliente1.equals(cliente2)); // false
 
@@ -46,14 +46,14 @@ public class Main {
         System.out.println(cliente3);
         System.out.println(sus1);
         System.out.println(sus2);
-=======
+
         System.out.println("¿cliente1 es igual a cliente4? " + cliente1.equals(cliente4)); 
-        System.out.println("¿cliente1 es igual a cliente2? " + cliente1.equals(cliente2)); 
-    
-        Suscripcion sus3 = new Suscripcion("Premium", 500.00, 12); 
+        System.out.println("¿cliente1 es igual a cliente2? " + cliente1.equals(cliente2));
+
+        sus3 = new Suscripcion("Premium", 500.00, 12);
         System.out.println("¿sus1 es igual a sus3? " + sus1.equals(sus3)); 
         System.out.println("¿sus1 es igual a sus2? " + sus1.equals(sus2)); 
->>>>>>> 6468cfa5706f624d641953450fa4ae4bc459e220
+
     }
 }
 
@@ -97,11 +97,9 @@ class Cliente {
         System.out.println(nombre + " " + apellidos +
                 " adquirió una suscripción " + suscripcion.getTipo() + ".");
     }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 6468cfa5706f624d641953450fa4ae4bc459e220
+
+
     public void mostrarInfo() {
         System.out.println("Cliente: " + nombre + " " + apellidos);
         System.out.println("Cédula: " + cedula);
@@ -147,10 +145,7 @@ class Cliente {
     public Suscripcion getSuscripcion() { return suscripcion; }
     public void setSuscripcion(Suscripcion suscripcion) { this.suscripcion = suscripcion; }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 6468cfa5706f624d641953450fa4ae4bc459e220
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true; // mismo objeto
